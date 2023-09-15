@@ -4,62 +4,62 @@
         "course_name": "Introduction to C Programming",
         "credit": 1,
         "price": 15000,
-        "details": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+        "details": "C programming is a way to tell computers what to do using a language that they can understand. It's like giving instructions to a robot. C is a type of programming."
     },
     {
         "img": "https://i.ibb.co/pdWCCTZ/Rectangle-2-3.png",
         "course_name": "Introduction to Algorithms",
         "credit": 2,
         "price": 25000,
-        "details": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+        "details": "An algorithm is like a recipe or a set of instructions that a computer or a person can follow to solve a problem or perform a task. Imagine you want to make a peanut butter."
     },
     {
         "img": "https://i.ibb.co/nmyGLJr/Rectangle-2-4.png",
         "course_name": "Introduction to C++ for DSA",
         "credit": 10,
         "price": 10000,
-        "details": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+        "details": "C++ is a computer programming language that is widely used in the field of Data Structures and Algorithms (DSA). It's a powerful language that allows you."
     },
     {
         "img": "https://i.ibb.co/5xd0rV3/Rectangle-3.png",
         "course_name": "Basic Data Structures",
         "credit": 5,
         "price": 35000,
-        "details": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+        "details": "Data structures are like special containers that store and organize data in a computer. They help make it easier to work with and manipulate information."
     },
     {
         "img": "https://i.ibb.co/7RhYxsk/Rectangle-2.png",
         "course_name": "Introduction to OOP Python",
         "credit": 5,
         "price": 19000,
-        "details": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+        "details": "(OOP) in Python is a way of organizing and structuring your code to make it more understandable and easier to work with. It's like using building blocks."
     },
     {
         "img": "https://i.ibb.co/NLDHDKq/Rectangle-2-5.png",
         "course_name": "Software Engineering",
         "credit": 2,
         "price": 23000,
-        "details": "Dive into the world of AI and understand its principles and applications."
+        "details": "Software engineering is like building a house, but instead of bricks and wood, we use code and computers. It's the process of and maintaining software programs or applications."
     },
     {
         "img": "https://i.ibb.co/QX7s2xp/Rectangle-3-1.png",
         "course_name": "AWS, Cloud Computing",
         "credit": 5,
         "price": 35000,
-        "details": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+        "details": "Think of AWS as a big digital toolbox provided by Amazon. It's like a set of powerful tools and services that you can use over the internet to do lots of different."
     },
     {
         "img": "https://i.ibb.co/ncnJ4Jn/Rectangle-2-1.png",
         "course_name": "Database (MySQL)",
         "credit": 5,
         "price": 19000,
-        "details": "Master the basics of finance to make informed business decisions."
+        "details": "A database in MySQL is like a digital filing cabinet for storing and organizing information. It's a structured way to keep data,and other details, in a computer system"
     },
     {
         "img": "https://i.ibb.co/R7YBvnM/Rectangle-2-6.png",
         "course_name": "Problem-Solving Part",
         "credit": 2,
         "price": 23000,
-        "details": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+        "details": "Problem-solving is the process of finding solutions to challenges or difficulties. It involves several steps., problem-solving is a skill that can be developed."
     }
 ]

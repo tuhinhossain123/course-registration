@@ -12,6 +12,7 @@ const Card = () => {
     const [selectedCourse, setSelectedCourse] = useState([]);
     const [remainingCredit, setRemainingCredit] = useState(0);
     const [totalCredit, setTotalCredit] = useState(0);
+    const [totalPrice, setTotalPrice] = useState(0);
     useEffect(() => {
         fetch('./data.json')
             .then(res => res.json())
@@ -40,7 +41,7 @@ const Card = () => {
             const totalRemaining = 20 - count;
 
             if (count > 20) {
-                return toast.error("Sorry!! You can't add more than 20 credit", {
+                return toast.error("Sorry!! You can't add more than 20 credit.", {
                     position: "top-center",
                     autoClose: 5000,
                     hideProgressBar: false,
@@ -55,6 +56,8 @@ const Card = () => {
                 setTotalCredit(count);
                 setRemainingCredit(totalRemaining)
                 setSelectedCourse([...selectedCourse, course])
+                const newTotalPrice = totalPrice + course.price;
+                setTotalPrice(newTotalPrice);
             }
         }
 
@@ -93,7 +96,7 @@ const Card = () => {
                     ))}
                 </div>
                 <div className="w-1/4">
-                    <Cart selectedCourse={selectedCourse} remainingCredit={remainingCredit} totalCredit={totalCredit}></Cart>
+                    <Cart selectedCourse={selectedCourse} remainingCredit={remainingCredit} totalCredit={totalCredit} totalPrice={totalPrice}></Cart>
                 </div>
             </div>
 
