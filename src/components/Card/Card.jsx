@@ -9,7 +9,9 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Card = () => {
     const [allCourse, setAllCourse] = useState([]);
-    const [selectedCourse, setSelectedCourse] = useState([])
+    const [selectedCourse, setSelectedCourse] = useState([]);
+    const [remainingCredit, setRemainingCredit] = useState(0);
+    const [totalCredit, setTotalCredit] = useState(0);
     useEffect(() => {
         fetch('./data.json')
             .then(res => res.json())
@@ -18,6 +20,7 @@ const Card = () => {
 
     const handleCourseSelect = (course) => {
         const isRemove = selectedCourse.find((item) => item.img == course.img);
+        let count = course.credit;
         if (isRemove) {
             return toast.error('Sorry all ready added !!!', {
                 position: "top-center",
@@ -28,24 +31,43 @@ const Card = () => {
                 draggable: true,
                 progress: undefined,
                 theme: "light",
-                });
+            });
         }
         else {
-            setSelectedCourse([...selectedCourse, course])
+            selectedCourse.forEach((course) => (
+                count = count + course.credit
+            ));
+            const totalRemaining = 20 - count;
+
+            if (count > 20) {
+                return toast.error("Sorry!! You can't add more than 20 credit", {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+            }
+            else {
+                setTotalCredit(count);
+                setRemainingCredit(totalRemaining)
+                setSelectedCourse([...selectedCourse, course])
+            }
         }
 
     }
-    console.log(selectedCourse)
-
 
     return (
         <div>
             <h1 className='text-4xl text-center pt-12 font-bold'>Course Registration</h1>
             <div className="flex gap-4 container mx-auto mt-8">
                 <div className="w-3/4 gap-4  grid grid-cols-3">
-                    {allCourse.map((course) => (
+                    {allCourse.map((course, idx) => (
 
-                        <div key={course.img} className='bg-white rounded-xl p-3'>
+                        <div key={idx} className='bg-white rounded-xl p-3'>
                             <img className='w-full' src={course.img} alt="" />
                             <h2 className='mt-3 text-lg font-semibold'>{course.course_name}</h2>
                             <p className='mt-3 text-gray-400'>{course.details}</p>
@@ -71,7 +93,7 @@ const Card = () => {
                     ))}
                 </div>
                 <div className="w-1/4">
-                    <Cart selectedCourse={selectedCourse}></Cart>
+                    <Cart selectedCourse={selectedCourse} remainingCredit={remainingCredit} totalCredit={totalCredit}></Cart>
                 </div>
             </div>
 
