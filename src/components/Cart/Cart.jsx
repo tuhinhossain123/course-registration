@@ -8,6 +8,7 @@ const Cart = ({ selectedCourse }) => {
             {selectedCourse.map((course) => (
                 <p key={course.img} className="text-gray-400">{course.course_name}</p>
             ))}
+            
         </div>
     );
 };

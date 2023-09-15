@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import { BsCurrencyDollar, BsBook } from "react-icons/bs";
 import Cart from "../Cart/Cart";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -15,7 +17,23 @@ const Card = () => {
     }, [])
 
     const handleCourseSelect = (course) => {
-        setSelectedCourse([...selectedCourse, course])
+        const isRemove = selectedCourse.find((item) => item.img == course.img);
+        if (isRemove) {
+            return toast.error('Sorry all ready added !!!', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                });
+        }
+        else {
+            setSelectedCourse([...selectedCourse, course])
+        }
+
     }
     console.log(selectedCourse)
 
@@ -44,6 +62,7 @@ const Card = () => {
                             </div>
                             <div className="flex justify-center">
                                 <button className="bg-[#2F80ED] text-white px-28 py-2 rounded mt-6 font-semibold" onClick={() => handleCourseSelect(course)}>Select</button>
+                                <ToastContainer />
                             </div>
                             <div>
 
