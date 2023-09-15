@@ -1,22 +1,29 @@
-/* eslint-disable react/jsx-key */
 
-// import { FiDollarSign } from "react-icons/bs";
 import { useEffect, useState } from "react";
 import { BsCurrencyDollar, BsBook } from "react-icons/bs";
+import Cart from "../Cart/Cart";
+
 
 
 const Card = () => {
     const [allCourse, setAllCourse] = useState([]);
+    const [selectedCourse, setSelectedCourse] = useState([])
     useEffect(() => {
         fetch('./data.json')
             .then(res => res.json())
             .then(data => setAllCourse(data))
     }, [])
-    console.log(allCourse)
+
+    const handleCourseSelect = (course) => {
+        setSelectedCourse([...selectedCourse, course])
+    }
+    console.log(selectedCourse)
+
+
     return (
         <div>
             <h1 className='text-4xl text-center pt-12 font-bold'>Course Registration</h1>
-            <div className="flex gap-5 container mx-auto mt-8">
+            <div className="flex gap-4 container mx-auto mt-8">
                 <div className="w-3/4 gap-4  grid grid-cols-3">
                     {allCourse.map((course) => (
 
@@ -36,7 +43,7 @@ const Card = () => {
                                 </div>
                             </div>
                             <div className="flex justify-center">
-                                <button className="bg-[#2F80ED] text-white px-28 py-2 rounded mt-6 font-semibold">Select</button>
+                                <button className="bg-[#2F80ED] text-white px-28 py-2 rounded mt-6 font-semibold" onClick={() => handleCourseSelect(course)}>Select</button>
                             </div>
                             <div>
 
@@ -45,7 +52,7 @@ const Card = () => {
                     ))}
                 </div>
                 <div className="w-1/4">
-                    <h3>cart</h3>
+                    <Cart selectedCourse={selectedCourse}></Cart>
                 </div>
             </div>
 
