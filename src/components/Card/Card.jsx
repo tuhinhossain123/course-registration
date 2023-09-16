@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const Card = () => {
     const [allCourse, setAllCourse] = useState([]);
     const [selectedCourse, setSelectedCourse] = useState([]);
-    const [remainingCredit, setRemainingCredit] = useState(0);
+    const [remainingCredit, setRemainingCredit] = useState(20);
     const [totalCredit, setTotalCredit] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0);
     useEffect(() => {
@@ -23,16 +23,7 @@ const Card = () => {
         const isRemove = selectedCourse.find((item) => item.img == course.img);
         let count = course.credit;
         if (isRemove) {
-            return toast.error('Sorry all ready added !!!', {
-                position: "top-center",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-            });
+            return toast('Sorry all ready added !!!')
         }
         else {
             selectedCourse.forEach((course) => (
@@ -41,16 +32,7 @@ const Card = () => {
             const totalRemaining = 20 - count;
 
             if (count > 20) {
-                return toast.error("Sorry!! You can't add more than 20 credit.", {
-                    position: "top-center",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "light",
-                });
+                return toast("Sorry!! You can't add more than 20 credit.")
             }
             else {
                 setTotalCredit(count);
